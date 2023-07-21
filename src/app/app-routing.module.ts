@@ -11,7 +11,7 @@ const routes: Routes = [
     path: '', component: HomeComponent
   },
   {
-    path: 'auth', component: AuthComponent
+    path: 'auth/:mode', component: AuthComponent
   },
   {
     path: ':user', component: DashboardComponent, children: [

@@ -1,0 +1,22 @@
+h1, h3, h4 {
+  color: var(--color3);
+}
+
+h1 {
+  font-size: 4em;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color3);
+}
+
+.svg-reference {
+  font-size: 0.5em;
+  text-decoration: none;
+  color: var(--color2);
+}
+
+img {
+  max-height: 400px;
+}

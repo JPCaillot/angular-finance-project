@@ -8,6 +8,8 @@ import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MonthComponent } from './dashboard/month/month.component';
 import { TotalComponent } from './dashboard/total/total.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { TotalComponent } from './dashboard/total/total.component';
     AuthComponent,
     DashboardComponent,
     MonthComponent,
-    TotalComponent
+    TotalComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
