@@ -1,9 +1,24 @@
-<main>
+<main class="text-center">
   <h3 *ngIf="credential === 'signup'">Join our community!</h3>
   <h3 *ngIf="credential === 'login'">Log in to your account:</h3>
   <!-- <div>
+    SIGNUP
+    name,
+    e-mail,
+    profession,
+    password 1,
+    password 2,
+    security question/answer
+    LOGIN
+    e-mail,
+    password
     <label for="email">
       <input type="text" name="email" id="email">
     </label>
   </div> -->
+  <div>
+    <button type="button" class="btn fin__btn-dark">{{ credential === 'signup' ? 'Log in' : 'Sign-up' }} instead!</button>
+    <button type="submit" class="btn fin__btn-dark">{{ credential === 'signup' ? 'Sign-up' : 'Log in' }}</button>
+    <!-- Add functionality -->
+  </div>
 </main>
