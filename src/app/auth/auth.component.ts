@@ -1,4 +1,5 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, ViewChild } from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,11 +8,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements DoCheck{
-  credential: string = '';
+  mode: string = '';
+
   constructor(private route: ActivatedRoute) {}
 
   ngDoCheck(): void {
-    this.credential = this.route.snapshot.params['mode'];
-
+    this.mode = this.route.snapshot.params['mode'];
   }
 }

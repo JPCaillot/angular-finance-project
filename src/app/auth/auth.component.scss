@@ -1,1 +1,13 @@
+@use '@angular/material' as mat;
+@import '../../styles.scss';
 
+mat-card.auth-form {
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: mat.get-color-from-palette($primary-palette, 50);
+  padding: 15px;
+}
+
+mat-form-field {
+  width: 250px;
+}

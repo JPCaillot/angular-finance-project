@@ -1,24 +1,68 @@
-<main class="text-center">
-  <h3 *ngIf="credential === 'signup'">Join our community!</h3>
-  <h3 *ngIf="credential === 'login'">Log in to your account:</h3>
-  <!-- <div>
-    SIGNUP
-    name,
-    e-mail,
-    profession,
-    password 1,
-    password 2,
-    security question/answer
-    LOGIN
-    e-mail,
-    password
-    <label for="email">
-      <input type="text" name="email" id="email">
-    </label>
-  </div> -->
-  <div>
-    <button type="button" class="btn fin__btn-dark">{{ credential === 'signup' ? 'Log in' : 'Sign-up' }} instead!</button>
-    <button type="submit" class="btn fin__btn-dark">{{ credential === 'signup' ? 'Sign-up' : 'Log in' }}</button>
-    <!-- Add functionality -->
-  </div>
+<main class="text-center mt-3">
+  <h3>
+    {{ mode === "signup" ? "Join our community!" : "Log in to your account:" }}
+  </h3>
+  <mat-card class="auth-form">
+    <div class="row justify-content-center">
+      <mat-form-field
+        *ngIf="mode === 'signup'"
+        appearance="outline"
+        class="col-auto"
+      >
+        <mat-label>Name</mat-label>
+        <input placeholder="Insert name" matInput />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="col-auto">
+        <mat-label>E-mail</mat-label>
+        <input placeholder="Please insert a valid e-mail" matInput />
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="mode === 'signup'"
+        appearance="outline"
+        class="col-auto"
+      >
+        <mat-label>Date of birth</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="row justify-content-center">
+      <mat-form-field appearance="outline" class="col-auto">
+        <mat-label>Password</mat-label>
+        <input type="password" placeholder="Insert a safe password" matInput />
+        <mat-hint *ngIf="mode === 'signup'"
+          >Must contain letters and numbers</mat-hint
+        >
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="mode === 'signup'"
+        appearance="outline"
+        class="col-auto"
+      >
+        <mat-label>Confirm your password</mat-label>
+        <input type="password" placeholder="Repeat the password" matInput />
+        <mat-hint>This has to match the previous field</mat-hint>
+      </mat-form-field>
+    </div>
+
+
+    <div>
+      <button type="submit" class="btn fin__btn-dark">
+        {{ mode === "signup" ? "Sign-up" : "Log in" }}
+      </button>
+      <!-- Add functionality -->
+    </div>
+  </mat-card>
+  <p>
+    {{ mode === "signup" ? "Already a member? " : "New to EasyFin? " }}
+    <a [routerLink]="['/auth', mode === 'signup' ? 'login' : 'signup']">
+      {{ mode === "signup" ? "Log in" : "Sign-up" }}
+    </a>
+    instead!
+  </p>
 </main>
